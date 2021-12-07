@@ -48,6 +48,30 @@ public class Player : MonoBehaviour
             transform.Translate( -moveSpeed * Time.deltaTime, 0, 0);
         }
     }
+
+    // 物件偵測是否有碰到東西
+    // 參數的 other 是指碰撞到的東西
+    void OnCollisionEnter2D(Collision2D other) {
+        // 他跟 Update 一樣是會被重複執行的
+
+        // 如果我想要讓程式知道我撞到的是誰，可以在 GameObject 加上標籤
+        if (other.gameObject.tag == "Floor1") {
+            Debug.Log("撞到第一種階梯");
+        } else if (other.gameObject.tag == "Floor2") {
+            Debug.Log("撞到第二種階梯");
+        } 
+    }
+
+    // 判斷有沒有經過物件
+    void OnTriggerEnter2D(Collider2D other) { 
+        // 會不斷地被執行
+        // Is Trigger 碰撞的 (只是判斷有沒有經過物件)
+        if (other.gameObject.tag == "DeathLine") {
+            Debug.Log("你輸了");
+        }
+        
+    }
+
 }
 
 
