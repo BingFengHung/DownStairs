@@ -55,9 +55,9 @@ public class Player : MonoBehaviour
         // 他跟 Update 一樣是會被重複執行的
 
         // 如果我想要讓程式知道我撞到的是誰，可以在 GameObject 加上標籤
-        if (other.gameObject.tag == "Floor1") {
+        if (other.gameObject.tag == "Normal") {
             Debug.Log("撞到第一種階梯");
-        } else if (other.gameObject.tag == "Floor2") {
+        } else if (other.gameObject.tag == "Nails") {
             Debug.Log("撞到第二種階梯");
         } 
     }
